@@ -9,9 +9,29 @@ import { CategoryListComponentModule } from './components/category-list/category
 import { CategoriesServiceModule } from './services/categories.service-module';
 import { CryptoChipsComponentModule } from './components/crypto-chips/crypto-chips.component-module';
 import { CryptoServiceModule } from './services/crypto.service-module';
+import {PublicHolidaysComponent} from "./components/public-holidays/public-holidays.component";
+import {PublicHolidaysComponentModule} from "./components/public-holidays/public-holidays.component-module";
+import {PublicHolidaysServiceModule} from "./services/public-holidays.service-module";
 
 @NgModule({
-  imports: [RouterModule.forRoot([{ path: 'products', component: ProductListComponent }, { path: 'categories', component: CategoryListComponent }, { path: 'crypto', component: CryptoChipsComponent }]), ProductListComponentModule, ProductsServiceModule, CategoryListComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoServiceModule],
+  imports: [RouterModule.forRoot
+  (
+    [
+    { path: 'products', component: ProductListComponent },
+    { path: 'categories', component: CategoryListComponent },
+    { path: 'crypto', component: CryptoChipsComponent },
+    { path: 'public-holidays', component: PublicHolidaysComponent}
+    ]
+  ),
+    ProductListComponentModule,
+    ProductsServiceModule,
+    CategoryListComponentModule,
+    CategoriesServiceModule,
+    CryptoChipsComponentModule,
+    CryptoServiceModule,
+    PublicHolidaysComponentModule,
+    PublicHolidaysServiceModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
