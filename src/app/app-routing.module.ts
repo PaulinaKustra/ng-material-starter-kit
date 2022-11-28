@@ -16,6 +16,7 @@ import {CategoriesCheckboxComponentModule} from "./components/categories-checkbo
 import {CategoriesCheckboxComponent} from "./components/categories-checkbox/categories-checkbox.component";
 import {CategoriesMenuComponent} from "./components/categories-menu/categories-menu.component";
 import {CategoriesMenuComponentModule} from "./components/categories-menu/categories-menu.component-module";
+import {ProductTableComponent} from "./components/product-table/product-table.component";
 
 @NgModule({
   imports: [RouterModule.forRoot
@@ -26,7 +27,8 @@ import {CategoriesMenuComponentModule} from "./components/categories-menu/catego
     { path: 'crypto', component: CryptoChipsComponent },
     { path: 'public-holidays', component: PublicHolidaysComponent},
     { path: 'checkbox-categories', component: CategoriesCheckboxComponent},
-    { path: 'categories-menu', component: CategoriesMenuComponent}
+    { path: 'categories-menu', component: CategoriesMenuComponent},
+    { path: 'product-search', component: ProductTableComponent}
     ]
   ),
     ProductListComponentModule,
