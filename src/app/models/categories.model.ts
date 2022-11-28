@@ -1,3 +1,4 @@
 export interface CategoriesModel {
-   name: string;
+  name: string;
+
 }
