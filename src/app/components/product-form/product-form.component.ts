@@ -14,8 +14,8 @@ export class ProductFormComponent {
     title: new FormControl(),
     price: new FormControl(),
     description: new FormControl(),
-    image: new FormControl(),
-    category: new FormControl()
+    category: new FormControl(),
+    image: new FormControl()
   });
 
   constructor(private _productsService: ProductsService) {
