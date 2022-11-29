@@ -1,3 +1,5 @@
+<mat-card-title>Product List</mat-card-title>
+
 <form [formGroup]="productForm" (ngSubmit)="onProductFormSubmitted(productForm)">
   <div>
     <mat-form-field appearance="fill">
@@ -19,7 +21,9 @@
    <div>
     <mat-form-field appearance="fill">
       <mat-label>Category</mat-label>
-      <input matInput type="text" placeholder="Category" formControlName="category" required>
+      <mat-select formControlName="category" required>
+             <mat-option *ngFor="let item of categoriesList$ | async" [value]="item">{{item}} </mat-option>
+      </mat-select>
       <mat-error *ngIf="productForm.get('category')!.invalid">category is invalid</mat-error>
     </mat-form-field>
   </div>
@@ -31,6 +35,10 @@
     </mat-form-field>
   </div>
   <div>
-    <button type="submit" mat-raised-button color="primary">Submit</button>
+    <button type="submit" mat-raised-button
+            color="primary">
+      Submit
+    </button>
   </div>
 </form>
+
