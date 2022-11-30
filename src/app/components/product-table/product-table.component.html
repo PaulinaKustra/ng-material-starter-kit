@@ -1,27 +1,27 @@
 <mat-card>
-  <mat-card-title>Product List</mat-card-title>
+  <mat-card-title class="text-center ms-3 fs-1 align-middle">Product List</mat-card-title>
     <mat-card-content>
-    <ng-container *ngIf="table$ | async as list">
-      <table mat-table [dataSource]="list" class="mat-elevation-z8">
+    <ng-container *ngIf="table$ | async as list" >
+      <table class="table table-striped table-hover table-bordered align-middle" mat-table [dataSource]="list">
         <!-- Column 1 -->
         <ng-container matColumnDef="Image">
-          <th mat-header-cell *matHeaderCellDef> Image </th>
-          <td mat-cell *matCellDef="let element"> <img src="{{ element.image }}" alt=""> </td>
+          <th class="text-center fs-5 fw-bold ms-2 align-middle" mat-header-cell *matHeaderCellDef> Image </th>
+          <td mat-cell *matCellDef="let element"> <img src="{{ element.image }}" class="rounded mx-auto d-block mx-auto" alt=""> </td>
         </ng-container>
         <!-- Column 2 -->
-        <ng-container matColumnDef="Title">
-          <th mat-header-cell *matHeaderCellDef> Title </th>
-          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        <ng-container matColumnDef="Title" class="mx-auto">
+          <th class="text-center fs-5 fw-bold align-middle" mat-header-cell *matHeaderCellDef> Title </th>
+          <td *matCellDef="let element" > {{element.title}}</td>
         </ng-container>
 <!--        Column 3 -->
-        <ng-container matColumnDef="Category">
-          <th mat-header-cell *matHeaderCellDef> Category </th>
-          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+        <ng-container matColumnDef="Category" class="mx-auto">
+          <th class="text-center fs-5 fw-bold align-middle" mat-header-cell *matHeaderCellDef> Category </th>
+          <td class="mx-auto text-center" *matCellDef="let element"> {{element.category}} </td>
         </ng-container>
 <!--        Column 4-->
-        <ng-container matColumnDef="Price">
-          <th mat-header-cell *matHeaderCellDef> Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        <ng-container matColumnDef="Price" class="mx-auto">
+          <th class="text-center fs-5 fw-bold align-middle" mat-header-cell *matHeaderCellDef> Price </th>
+          <td class="mx-auto text-center" *matCellDef="let element"> {{element.price}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="['Image', 'Title', 'Category','Price']"></tr>
