@@ -14,6 +14,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CatFactComponent } from './components/cat-fact/cat-fact.component';
 import { AgeComponent } from './components/age/age.component';
+import { CartComponent } from './components/cart/cart.component';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductsServiceModule } from './services/products.service-module';
 import { CategoryListComponentModule } from './components/category-list/category-list.component-module';
@@ -36,6 +37,8 @@ import { CatFactComponentModule } from './components/cat-fact/cat-fact.component
 import { CatFactServiceModule } from './services/cat-fact.service-module';
 import { AgeComponentModule } from './components/age/age.component-module';
 import { AgeServiceModule } from './services/age.service-module';
+import { CartComponentModule } from './components/cart/cart.component-module';
+import { CartServiceModule } from './services/cart.service-module';
 
 @NgModule({
   imports: [RouterModule.forRoot
@@ -54,9 +57,10 @@ import { AgeServiceModule } from './services/age.service-module';
         { path: 'register', component: RegisterFormComponent },
         { path: 'product/:id', component: ProductDetailComponent },
         { path: 'cat-fact', component: CatFactComponent },
-        { path: 'age/:name', component: AgeComponent }
+        { path: 'age/:name', component: AgeComponent },
+        { path: 'cart/:id', component: CartComponent }
       ]
-    ), ProductListComponentModule, ProductsServiceModule, CategoryListComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoServiceModule, PublicHolidaysComponentModule, PublicHolidaysServiceModule, CategoriesCheckboxComponentModule, CategoriesMenuComponentModule, ProductFormComponentModule, CreateEmployeeComponentModule, CreateEmployeeServiceModule, LoginFormComponentModule, LoginFormServiceModule, RegisterFormComponentModule, RegisterFormServiceModule, ProductDetailComponentModule, CatFactComponentModule, CatFactServiceModule, AgeComponentModule, AgeServiceModule],
+    ), ProductListComponentModule, ProductsServiceModule, CategoryListComponentModule, CategoriesServiceModule, CryptoChipsComponentModule, CryptoServiceModule, PublicHolidaysComponentModule, PublicHolidaysServiceModule, CategoriesCheckboxComponentModule, CategoriesMenuComponentModule, ProductFormComponentModule, CreateEmployeeComponentModule, CreateEmployeeServiceModule, LoginFormComponentModule, LoginFormServiceModule, RegisterFormComponentModule, RegisterFormServiceModule, ProductDetailComponentModule, CatFactComponentModule, CatFactServiceModule, AgeComponentModule, AgeServiceModule, CartComponentModule, CartServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
