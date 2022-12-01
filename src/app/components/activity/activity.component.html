@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+    <ng-container *ngIf="activity$ | async as item">
+      <h1 class="fs-2" style="color: blueviolet">I'm bored. What do you propose?</h1>
+      <h2 style="color: blueviolet">My idea:</h2> <h2> {{ item.activity }}</h2>
+      <h2 style="color: blueviolet">Type: </h2> <h2> {{item.type}}</h2>
+      <h2 style="color: hotpink">Have fun!</h2>
+    </ng-container>
+
+  </mat-card-content>
+</mat-card>
+

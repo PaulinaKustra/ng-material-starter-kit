@@ -108,5 +108,9 @@
     "user": {
       "container": "<ng-container *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</ng-container>",
       "content": "{{ $itemVariable$ }}"
+    },
+    "activity": {
+      "container": "<ng-container *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</ng-container>",
+      "content": "{{ $itemVariable$ }}"
     }
 }}
