@@ -52,7 +52,7 @@ import { AgeServiceModule } from './services/age.service-module';
         { path: 'create-employee', component: CreateEmployeeComponent },
         { path: 'login', component: LoginFormComponent },
         { path: 'register', component: RegisterFormComponent },
-        { path: 'products/:id', component: ProductDetailComponent },
+        { path: 'product/:id', component: ProductDetailComponent },
         { path: 'cat-fact', component: CatFactComponent },
         { path: 'age/:name', component: AgeComponent }
       ]
