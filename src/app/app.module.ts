@@ -17,6 +17,7 @@ import {ProductsComponentModule} from "./components/products/products.component-
         BrowserAnimationsModule,
         HttpClientModule,
         ProductsComponentModule
+
     ],
   providers: [],
   bootstrap: [AppComponent]
