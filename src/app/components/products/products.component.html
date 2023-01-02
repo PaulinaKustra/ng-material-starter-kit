@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-title>
+    Product List
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of data$ | async">{{item.title}}, {{item.price|currency: 'USD': 'symbol'}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
