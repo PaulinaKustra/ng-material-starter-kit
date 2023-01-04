@@ -1,20 +1,33 @@
 <mat-card>
-  <mat-card-title>Product List</mat-card-title>
-  <mat-card-content>
-    <mat-selection-list role="list" *ngIf="products$ | async as products else loading">
-      <ng-container *ngIf="products.length >0 else empty">
-        <mat-list-option role="listitem" *ngFor="let item of products$ | async">{{item.title}}</mat-list-option>
-      </ng-container>
-    </mat-selection-list>
-    <ng-template #empty>
-      Oops! There is no data.
-    </ng-template>
-    <ng-template #loading>
-      <mat-progress-spinner
-        [color]="'primary'"
-        [mode]="'indeterminate'"
-        [value]="50">
-      </mat-progress-spinner>
-    </ng-template>
-  </mat-card-content>
+  <mat-list role="list">
+
+    <mat-list-item role="listitem" *ngFor="let item of products$ | async">
+    <img [src]="item.image" class="avatarImage" alt="ProductImage">
+    {{item.title}} {{item.price |currency: 'USD' : 'symbol: $'}}
+    </mat-list-item>
+
+  </mat-list>
 </mat-card>
+
+<!--<mat-card>-->
+<!--  <mat-card-title>Product List</mat-card-title>-->
+<!--  <mat-card-content>-->
+<!--    <mat-selection-list role="list" *ngIf="products$ | async as products else loading">-->
+<!--      <ng-container *ngIf="products.length >0 else empty">-->
+<!--        <mat-list-option role="listitem" *ngFor="let item of products$ | async">{{item.title}}</mat-list-option>-->
+<!--      </ng-container>-->
+<!--    </mat-selection-list>-->
+<!--    <ng-template #empty>-->
+<!--      Oops! There is no data.-->
+<!--    </ng-template>-->
+<!--    <ng-template #loading>-->
+<!--      <mat-progress-spinner-->
+<!--        [color]="'primary'"-->
+<!--        [mode]="'indeterminate'"-->
+<!--        [value]="50">-->
+<!--      </mat-progress-spinner>-->
+<!--    </ng-template>-->
+<!--  </mat-card-content>-->
+<!--</mat-card>-->
+
+
