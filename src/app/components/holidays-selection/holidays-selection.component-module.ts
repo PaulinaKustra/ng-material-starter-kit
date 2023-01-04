@@ -5,10 +5,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 import { HolidaysSelectionComponent } from './holidays-selection.component';
 
 @NgModule({
-  imports: [MatListModule, CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MatOptionModule],
+  imports: [MatListModule, CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MatOptionModule, MatCardModule],
   declarations: [HolidaysSelectionComponent],
   providers: [],
   exports: [HolidaysSelectionComponent]
