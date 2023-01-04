@@ -6,10 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HolidaysSelectionComponent } from './holidays-selection.component';
 
 @NgModule({
-  imports: [MatListModule, CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MatOptionModule, MatCardModule],
+  imports: [MatListModule, CommonModule, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MatOptionModule, MatCardModule, MatProgressBarModule],
   declarations: [HolidaysSelectionComponent],
   providers: [],
   exports: [HolidaysSelectionComponent]
