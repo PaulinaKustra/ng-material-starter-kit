@@ -1,0 +1,6 @@
+<mat-label>Crypto Radio</mat-label>
+<div>
+  <mat-radio-group>
+    <mat-radio-button *ngFor="let item of cryptoRadio$ | async" type="text" [value]="item.symbol">{{item.symbol}}</mat-radio-button>
+  </mat-radio-group>
+</div>
