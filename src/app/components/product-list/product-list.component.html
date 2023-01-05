@@ -1,11 +1,9 @@
 <mat-card>
   <mat-list role="list">
-
     <mat-list-item role="listitem" *ngFor="let item of products$ | async">
     <img [src]="item.image" class="avatarImage" alt="ProductImage">
     {{item.title}} {{item.price |currency: 'USD' : 'symbol: $'}}
     </mat-list-item>
-
   </mat-list>
 </mat-card>
 
