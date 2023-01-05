@@ -8,6 +8,7 @@ import { CryptoRadioComponent } from './components/crypto-radio/crypto-radio.com
 import { HolidaysSelectionComponent } from './components/holidays-selection/holidays-selection.component';
 import { NamesTableComponent } from './components/names-table/names-table.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductTableComponent } from './components/product-table/product-table.component';
 import { EmployeeListComponentModule } from './components/employee-list/employee-list.component-module';
 import { EmployeeListServiceModule } from './services/employee-list.service-module';
 import { CryptoListComponentModule } from './components/crypto-list/crypto-list.component-module';
@@ -22,6 +23,7 @@ import { NamesTableComponentModule } from './components/names-table/names-table.
 import { NamesTableServiceModule } from './services/names-table.service-module';
 import { ProductListComponentModule } from './components/product-list/product-list.component-module';
 import { ProductListServiceModule } from './services/product-list.service-module';
+import { ProductTableComponentModule } from './components/product-table/product-table.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -32,8 +34,9 @@ import { ProductListServiceModule } from './services/product-list.service-module
     { path: 'crypto-radio', component: CryptoRadioComponent },
     { path: 'public-holidays', component: HolidaysSelectionComponent },
     { path: 'names', component: NamesTableComponent },
-    { path: 'products', component: ProductListComponent }
-  ]), EmployeeListComponentModule, EmployeeListServiceModule, CryptoListComponentModule, CryptoListServiceModule, CategoriesCheckboxComponentModule, CategoriesCheckboxServiceModule, CategoriesMenuComponentModule, CryptoRadioComponentModule, HolidaysSelectionComponentModule, HolidaysSelectionServiceModule, NamesTableComponentModule, NamesTableServiceModule, ProductListComponentModule, ProductListServiceModule],
+    { path: 'products', component: ProductListComponent },
+    { path: 'product-search', component: ProductTableComponent }
+  ]), EmployeeListComponentModule, EmployeeListServiceModule, CryptoListComponentModule, CryptoListServiceModule, CategoriesCheckboxComponentModule, CategoriesCheckboxServiceModule, CategoriesMenuComponentModule, CryptoRadioComponentModule, HolidaysSelectionComponentModule, HolidaysSelectionServiceModule, NamesTableComponentModule, NamesTableServiceModule, ProductListComponentModule, ProductListServiceModule, ProductTableComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
