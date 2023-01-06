@@ -12,6 +12,7 @@ import { ProductTableComponent } from './components/product-table/product-table.
 import { CryptoTableComponent } from './components/crypto-table/crypto-table.component';
 import { JobPostsComponent } from './components/job-posts/job-posts.component';
 import { JobPostsGridComponent } from './components/job-posts-grid/job-posts-grid.component';
+import { InfluencerListComponent } from './components/influencer-list/influencer-list.component';
 import { EmployeeListComponentModule } from './components/employee-list/employee-list.component-module';
 import { EmployeeListServiceModule } from './services/employee-list.service-module';
 import { CryptoListComponentModule } from './components/crypto-list/crypto-list.component-module';
@@ -31,6 +32,8 @@ import { CryptoTableComponentModule } from './components/crypto-table/crypto-tab
 import { JobPostsComponentModule } from './components/job-posts/job-posts.component-module';
 import { JobPostsServiceModule } from './services/job-posts.service-module';
 import { JobPostsGridComponentModule } from './components/job-posts-grid/job-posts-grid.component-module';
+import { InfluencerListComponentModule } from './components/influencer-list/influencer-list.component-module';
+import { InfluencersServiceModule } from './services/influencers.service-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -45,8 +48,9 @@ import { JobPostsGridComponentModule } from './components/job-posts-grid/job-pos
     { path: 'product-search', component: ProductTableComponent },
     { path: 'crypto-table', component: CryptoTableComponent },
     { path: 'job-post-table', component: JobPostsComponent },
-    { path: 'job-post-grid', component: JobPostsGridComponent }
-  ]), EmployeeListComponentModule, EmployeeListServiceModule, CryptoListComponentModule, CryptoListServiceModule, CategoriesCheckboxComponentModule, CategoriesCheckboxServiceModule, CategoriesMenuComponentModule, CryptoRadioComponentModule, HolidaysSelectionComponentModule, HolidaysSelectionServiceModule, NamesTableComponentModule, NamesTableServiceModule, ProductListComponentModule, ProductListServiceModule, ProductTableComponentModule, CryptoTableComponentModule, JobPostsComponentModule, JobPostsServiceModule, JobPostsGridComponentModule],
+    { path: 'job-post-grid', component: JobPostsGridComponent },
+    { path: 'influencers', component: InfluencerListComponent }
+  ]), EmployeeListComponentModule, EmployeeListServiceModule, CryptoListComponentModule, CryptoListServiceModule, CategoriesCheckboxComponentModule, CategoriesCheckboxServiceModule, CategoriesMenuComponentModule, CryptoRadioComponentModule, HolidaysSelectionComponentModule, HolidaysSelectionServiceModule, NamesTableComponentModule, NamesTableServiceModule, ProductListComponentModule, ProductListServiceModule, ProductTableComponentModule, CryptoTableComponentModule, JobPostsComponentModule, JobPostsServiceModule, JobPostsGridComponentModule, InfluencerListComponentModule, InfluencersServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
