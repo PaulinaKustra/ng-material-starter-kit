@@ -1,7 +1,7 @@
 export interface InfluencersModel {
   name: string;
   avatar: string;
-  followedBy: FollowedBy[];
+  followedBy: InfluencersModel[];
   id: string;
 }
 export interface FollowedBy {
