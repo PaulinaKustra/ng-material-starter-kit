@@ -1,0 +1,14 @@
+<form [formGroup]="nameForm" (ngSubmit)="onNameFormSubmitted(nameForm)">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="nameForm.get('name')!.invalid">Name is invalid</mat-error>
+    </mat-form-field>
+    {{nameForm.value.name}}
+  </div>
+  <div>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!nameForm.valid">Submit</button>
+  </div>
+</form>
+
