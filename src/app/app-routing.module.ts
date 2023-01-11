@@ -6,6 +6,7 @@ import { EmailComponent } from './components/email/email.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserRolesFormComponent } from './components/user-roles-form/user-roles-form.component';
 import { UniversitiesRadioComponent } from './components/universities-radio/universities-radio.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NamesComponentModule } from './components/names/names.component-module';
 import { AgeComponentModule } from './components/age/age.component-module';
 import { EmailComponentModule } from './components/email/email.component-module';
@@ -14,6 +15,8 @@ import { UserRolesFormComponentModule } from './components/user-roles-form/user-
 import { UsersServiceModule } from './services/users.service-module';
 import { UniversitiesRadioComponentModule } from './components/universities-radio/universities-radio.component-module';
 import { UniversitiesServiceModule } from './services/universities.service-module';
+import { LoginFormComponentModule } from './components/login-form/login-form.component-module';
+import {LoginFormServiceModule} from "./services/login-form.service-module";
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -22,8 +25,9 @@ import { UniversitiesServiceModule } from './services/universities.service-modul
     { path: 'email-form', component: EmailComponent },
     { path: 'comments', component: CommentsComponent },
     { path: 'users', component: UserRolesFormComponent },
-    { path: 'universities', component: UniversitiesRadioComponent }
-  ]), NamesComponentModule, AgeComponentModule, EmailComponentModule, CommentsComponentModule, UserRolesFormComponentModule, UsersServiceModule, UniversitiesRadioComponentModule, UniversitiesServiceModule],
+    { path: 'universities', component: UniversitiesRadioComponent },
+    { path: 'login', component: LoginFormComponent }
+  ]), NamesComponentModule, AgeComponentModule, EmailComponentModule, CommentsComponentModule, UserRolesFormComponentModule, UsersServiceModule, UniversitiesRadioComponentModule, UniversitiesServiceModule, LoginFormComponentModule,LoginFormServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
