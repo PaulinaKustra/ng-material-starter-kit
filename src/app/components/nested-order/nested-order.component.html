@@ -1,0 +1,90 @@
+<form [formGroup]="orderForm" (ngSubmit)="onOrderFormSubmitted(orderForm)">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Product</mat-label>
+      <mat-select formControlName="product" required>
+        <mat-option *ngFor="let product of products$ | async"
+                    [value]="product.id">{{product.name}} {{product.price | currency: 'USD' : '$'}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="orderForm.get('product')!.invalid">product is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-label>Quantity</mat-label>
+    <mat-radio-group formControlName="quantity">
+      <mat-radio-button *ngFor="let quantity of quantity$ | async " [value]="quantity">{{quantity}}</mat-radio-button>
+      <mat-error *ngIf=" orderForm.get('quantity')!.invalid">Quantity is invalid</mat-error>
+    </mat-radio-group>
+  </div>
+  <fieldset formGroupName="shipping">
+    <legend>Shipping</legend>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>House Number</mat-label>
+        <input matInput type="text" placeholder="House Number" formControlName="houseNumber" required>
+        <mat-error *ngIf="shippingForm.get('houseNumber')!.invalid">houseNumber is invalid</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Zipcode</mat-label>
+        <input matInput type="text" placeholder="Zipcode" formControlName="zipcode" required>
+        <mat-error *ngIf="shippingForm.get('zipcode')!.invalid">zipcode is invalid</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <mat-select formControlName="city" required>
+          <mat-option *ngFor="let city of cities$ | async"
+                      [value]="city.id">{{city.name}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-label>Delivery Time</mat-label>
+      <mat-radio-group formControlName="deliveryTime">
+        <mat-radio-button *ngFor="let deliveryTime of deliveryTime$ | async "
+                          [value]="deliveryTime">{{deliveryTime}}</mat-radio-button>
+        <mat-error *ngIf=" orderForm.get('quantity')!.invalid">Delivery time is invalid</mat-error>
+      </mat-radio-group>
+    </div>
+  </fieldset>
+  <fieldset formGroupName="invoice"><legend>Invoice</legend>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea matInput type="text" placeholder="Address" formControlName="address" required></textarea>
+        <mat-error *ngIf="invoiceForm.get('address')!.invalid">address is invalid</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Extra Address</mat-label>
+        <textarea matInput type="text" placeholder="Extra Address" formControlName="extraAddress" required></textarea>
+        <mat-error *ngIf="invoiceForm.get('extraAddress')!.invalid">extraAddress is invalid</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Vat Number</mat-label>
+        <input matInput type="text" placeholder="Vat Number" formControlName="vatNumber" required>
+        <mat-error *ngIf="invoiceForm.get('vatNumber')!.invalid">vatNumber is invalid</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country" required>
+          <mat-option *ngFor="let country of countries$ | async"
+                      [value]="country.name">{{country.name}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </fieldset>
+
+
+  <div>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+</form>
