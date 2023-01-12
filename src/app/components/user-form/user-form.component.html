@@ -1,0 +1,21 @@
+<form [formGroup]="userForm" (ngSubmit)="onUserFormSubmitted()">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Email" formControlName="email" required>
+      <mat-error *ngIf="userForm.get('email')!.invalid">email is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Role Id</mat-label>
+      <mat-select formControlName="roleId" required>
+        <mat-option *ngFor="let role of userRoles$ | async" [value]="role">{{role.role}} </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userForm.get('roleId')!.invalid">roleId is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

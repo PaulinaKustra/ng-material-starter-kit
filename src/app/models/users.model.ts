@@ -1,4 +1,5 @@
 export interface UsersModel {
-  readonly id: number;
-  readonly role: string;
+  id: any;
+  role: any;
+  email: string;
 }
