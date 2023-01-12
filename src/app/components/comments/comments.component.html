@@ -2,7 +2,7 @@
   <div>
     <mat-form-field appearance="fill">
       <mat-label>Comment</mat-label>
-      <input matInput type="text" placeholder="Comment" formControlName="comment" required>
+      <textarea matInput type="text" placeholder="Comment" formControlName="comment" required></textarea>
       <mat-error *ngIf="commentsForm.get('comment')!.invalid">Your comment must contain at least 4 words!</mat-error>
     </mat-form-field>
   </div>
