@@ -12,7 +12,7 @@ import { UsersService } from '../../services/users.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserRolesFormComponent {
-  readonly userRoles$: Observable<UsersModel[]> = this._usersService.getAll();
+  readonly userRoles$: Observable<UsersModel[]> = this._usersService.getAllRoles();
   readonly userRoles: FormGroup = new FormGroup({
     userRole: new FormControl('', [Validators.required])
   });
