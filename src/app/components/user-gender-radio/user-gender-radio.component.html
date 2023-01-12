@@ -1,0 +1,26 @@
+<form [formGroup]="userData" (ngSubmit)="submitted = true">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput type="text" placeholder="First Name" formControlName="firstName">
+      <mat-error *ngIf="userData.get('firstName')!.invalid">firstName is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="text" placeholder="Last Name" formControlName="lastName">
+      <mat-error *ngIf="userData.get('lastName')!.invalid">lastName is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+      <mat-label>Gender</mat-label><br>
+      <mat-radio-group formControlName="gender">
+        <mat-radio-button *ngFor="let item of genderData$ | async " [value]="item">{{item}}</mat-radio-button>
+        <mat-error *ngIf=" userData.get('gender')!.invalid">gender is invalid</mat-error>
+      </mat-radio-group>
+  </div>
+  <mat-error *ngIf="submitted && userData.controls['firstName' + 'lastName' + 'gender']?.errors?.['required']">
+  </mat-error>
+  <button (click)="onUserDataSubmitted(userData)" type="submit" mat-raised-button color="primary">Submit</button>
+</form>

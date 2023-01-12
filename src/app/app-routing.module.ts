@@ -10,6 +10,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { ProductFormComponent } from './components/product-form/product-form.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UsersRadioComponent } from './components/users-radio/users-radio.component';
+import { UserGenderRadioComponent } from './components/user-gender-radio/user-gender-radio.component';
 import { NamesComponentModule } from './components/names/names.component-module';
 import { AgeComponentModule } from './components/age/age.component-module';
 import { EmailComponentModule } from './components/email/email.component-module';
@@ -24,6 +25,7 @@ import { ProductFormComponentModule } from './components/product-form/product-fo
 import { ProductFormServiceModule } from './services/product-form.service-module';
 import { UserFormComponentModule } from './components/user-form/user-form.component-module';
 import { UsersRadioComponentModule } from './components/users-radio/users-radio.component-module';
+import { UserGenderRadioComponentModule } from './components/user-gender-radio/user-gender-radio.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -36,8 +38,9 @@ import { UsersRadioComponentModule } from './components/users-radio/users-radio.
     { path: 'login', component: LoginFormComponent },
     { path: 'product-form', component: ProductFormComponent },
     { path: 'user-roles', component: UserFormComponent },
-    { path: 'users-radio', component: UsersRadioComponent }
-  ]), NamesComponentModule, AgeComponentModule, EmailComponentModule, CommentsComponentModule, UserRolesFormComponentModule, UsersServiceModule, UniversitiesRadioComponentModule, UniversitiesServiceModule, LoginFormComponentModule, LoginFormServiceModule, ProductFormComponentModule, ProductFormServiceModule, UserFormComponentModule, UsersRadioComponentModule],
+    { path: 'users-radio', component: UsersRadioComponent },
+    { path: 'gender', component: UserGenderRadioComponent }
+  ]), NamesComponentModule, AgeComponentModule, EmailComponentModule, CommentsComponentModule, UserRolesFormComponentModule, UsersServiceModule, UniversitiesRadioComponentModule, UniversitiesServiceModule, LoginFormComponentModule, LoginFormServiceModule, ProductFormComponentModule, ProductFormServiceModule, UserFormComponentModule, UsersRadioComponentModule, UserGenderRadioComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
