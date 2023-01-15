@@ -24,11 +24,13 @@ export class UserGenderRadioComponent {
   constructor(private _usersService: UsersService) {
   }
 
-  onUserDataSubmitted(userData: FormGroup): void {
+  onUserDataSubmitted(): void {
     let user : UserPostModel= {
-      email: this.userData.get('email')?.value,
-      roleId: this.userData.get('roleId')?.value,
+      firstName: this.userData.get('firstName')?.value,
+      lastName: this.userData.get('lastName')?.value,
+      gender: this.userData.get('gender')?.value,
     } as UserPostModel;
+    console.log('user', user);
     this._usersService.submit(user);
   }
 }

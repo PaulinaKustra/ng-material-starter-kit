@@ -10,7 +10,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Role Id</mat-label>
       <mat-select formControlName="roleId" required>
-        <mat-option *ngFor="let role of userRoles$ | async" [value]="role">{{role.role}} </mat-option>
+        <mat-option *ngFor="let role of userRoles$ | async" [value]="role.id">{{role.role}} </mat-option>
       </mat-select>
       <mat-error *ngIf="userForm.get('roleId')!.invalid">roleId is invalid</mat-error>
     </mat-form-field>

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { UniversitiesModel } from '../../models/universities.model';
 import { UniversitiesService } from '../../services/universities.service';
@@ -13,13 +13,8 @@ import { UniversitiesService } from '../../services/universities.service';
 })
 export class UniversitiesRadioComponent {
   readonly polishUniversities$: Observable<UniversitiesModel[]> = this._universitiesService.getAll();
-  readonly polishUniversitiesForm: FormGroup = new FormGroup({
-    university: new FormControl('', [Validators.required]) });
+    university = new FormControl('', [Validators.required]);
 
-  currentValue:string = '';
-  constructor(private _universitiesService: UniversitiesService) {
-    this.polishUniversitiesForm.get('university')?.valueChanges.subscribe(x=>{
-      this.currentValue = x.name;
-    })
-  }
+  constructor(private _universitiesService: UniversitiesService){}
+
 }

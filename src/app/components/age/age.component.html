@@ -1,16 +1,31 @@
-<form [formGroup]="ageForm" (ngSubmit)="onAgeFormSubmitted(ageForm)">
+<form>
   <div>
-    <mat-form-field appearance="fill">
-      <mat-label>What is your age?</mat-label>
-      <input matInput type="number" placeholder="Age" formControlName="age" required>
-      <mat-error *ngIf="ageForm.get('age')!.invalid">You are under age!</mat-error>
-    </mat-form-field>
-    {{ ageForm.valueChanges | async | json}}
-<!--    lub jak poniżej:-->
-<!--    {{ageForm.value.age }}-->
-  </div>
-  <div>
-    <button type="submit" mat-raised-button color="primary" [disabled]="!ageForm.valid">Submit</button>
+      <mat-label>
+        <input type="number" [formControl]="age">
+        <mat-error *ngIf="age!.invalid">You are under age!</mat-error>-->
+      </mat-label>
   </div>
 </form>
+
+{{age.valueChanges | async | json}}
+
+
+
+
+
+<!--<form [formGroup]="ageForm" (ngSubmit)="onAgeFormSubmitted(ageForm)">-->
+<!--  <div>-->
+<!--    <mat-form-field appearance="fill">-->
+<!--      <mat-label>What is your age?</mat-label>-->
+<!--      <input matInput type="number" placeholder="Age" formControlName="age" required>-->
+<!--      <mat-error *ngIf="ageForm.get('age')!.invalid">You are under age!</mat-error>-->
+<!--    </mat-form-field>-->
+<!--    {{ ageForm.valueChanges | async | json}}-->
+<!--&lt;!&ndash;    lub jak poniżej:&ndash;&gt;-->
+<!--&lt;!&ndash;    {{ageForm.value.age }}&ndash;&gt;-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <button type="submit" mat-raised-button color="primary" [disabled]="!ageForm.valid">Submit</button>-->
+<!--  </div>-->
+<!--</form>-->
 

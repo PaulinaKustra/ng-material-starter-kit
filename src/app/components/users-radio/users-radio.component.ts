@@ -26,7 +26,7 @@ export class UsersRadioComponent {
   onUsersRadioSubmitted(): void {
     let user : UserPostModel= {
       email: this.usersRadio.get('email')?.value,
-      roleId: this.usersRadio.get('roleId')?.value,
+      roleId: this.usersRadio.get('role')?.value,
     } as UserPostModel;
     this._usersService.submit(user);
   }

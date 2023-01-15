@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-email',
@@ -9,9 +9,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmailComponent {
-  readonly emailForm: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.email]) });
+    email = new FormControl('', [Validators.email, Validators.required]);
 
-  onEmailFormSubmitted(emailForm: FormGroup): void {
-  }
 }

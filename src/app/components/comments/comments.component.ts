@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
@@ -9,10 +9,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommentsComponent {
-  readonly commentsForm: FormGroup = new FormGroup({
-    comment: new FormControl('', [Validators.pattern('^\\s*\\S+(?:\\s+\\S+){4,}\\s*$')])
-  });
+    comment = new FormControl('', [Validators.pattern('^\\s*\\S+(?:\\s+\\S+){3,}\\s*$')]);
 
-  onCommentsFormSubmitted(commentsForm: FormGroup): void {
-  }
 }

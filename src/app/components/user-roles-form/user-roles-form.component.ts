@@ -19,6 +19,4 @@ export class UserRolesFormComponent {
   constructor(private _usersService: UsersService) {
 
   }
-  onUserRolesSubmitted(userRolesForm: FormGroup): void {
-  }
 }

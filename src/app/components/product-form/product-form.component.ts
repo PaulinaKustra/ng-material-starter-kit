@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductFormService } from '../../services/product-form.service';
 import {Observable} from "rxjs";
-import {ProductFormModel} from "../../models/product-form.model";
 
 @Component({
   selector: 'app-product-form',
@@ -23,13 +22,13 @@ export class ProductFormComponent {
   constructor(private _productFormService: ProductFormService) {
   }
 
-  onProductFormSubmitted(productForm: FormGroup): void {
-    let product : ProductFormModel= {
-      title: this.productForm.get('title')?.value,
-      description: this.productForm.get('description')?.value,
-      price: this.productForm.get('price')?.value,
-      category: this.productForm.get('category')?.value
-    } as ProductFormModel;
-this._productFormService.submit(product);
-  }
+//   onProductFormSubmitted(productForm: FormGroup): void {
+//     let product : ProductFormModel= {
+//       title: this.productForm.get('title')?.value,
+//       description: this.productForm.get('description')?.value,
+//       price: this.productForm.get('price')?.value,
+//       category: this.productForm.get('category')?.value
+//     } as ProductFormModel;
+// this._productFormService.submit(product);
+//   }
 }

@@ -22,5 +22,5 @@
   </div>
   <mat-error *ngIf="submitted && userData.controls['firstName' + 'lastName' + 'gender']?.errors?.['required']">
   </mat-error>
-  <button (click)="onUserDataSubmitted(userData)" type="submit" mat-raised-button color="primary">Submit</button>
+  <button (click)="onUserDataSubmitted()" type="submit" mat-raised-button color="primary">Submit</button>
 </form>
