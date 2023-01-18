@@ -1,0 +1,21 @@
+<h1>Users Table</h1>
+<button (click)="onRefreshButtonClicked()" mat-mini-fab>
+  <mat-icon>refresh</mat-icon>
+</button>
+<ng-container *ngIf="users$ | async as list">
+  <table mat-table [dataSource]="list" class="mat-elevation-z8">
+    <!-- Column 1 -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID</th>
+      <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+    </ng-container>
+    <!-- Column 2 -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> Email</th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['ID', 'Email']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['ID', 'Email'];"></tr>
+  </table>
+</ng-container>
