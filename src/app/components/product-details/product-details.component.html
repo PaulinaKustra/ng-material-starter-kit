@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <td>
+      <mat-card>
+        <mat-card-title>Product List</mat-card-title>
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item role="listitem" *ngFor="let item of products$ | async">
+              {{item.title}}
+              <button mat-mini-fab (click)="onDetailsButtonClicked(item)">
+                <mat-icon>edit</mat-icon>
+              </button>
+<!--              <ng-container *ngIf="productDetails$ | async as selected" ; else empty>-->
+<!--                <ng-container *ngIf="selected.id == item.id" ; else empty>-->
+<!--                  {{selected.title}}  {{selected.price}}$-->
+<!--                </ng-container>-->
+<!--              </ng-container>-->
+
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </td>
+
+    <td>
+      <mat-card>
+        <mat-card-content>
+          <ng-container *ngIf="productDetails$ | async as item; else empty">{{item.title}} {{item.price}}$</ng-container>
+        </mat-card-content>
+        <ng-template #empty>
+          There is no data!
+        </ng-template>
+      </mat-card>
+    </td>
+  </tr>
+</table>
+
+
+
+
