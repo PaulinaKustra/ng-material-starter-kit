@@ -1,0 +1,18 @@
+<div>
+  <ng-container *ngIf="details$ | async as item">
+    <h1>{{ item.email }}</h1>
+    <h2>Other users in the same department:</h2>
+    <div>
+    <mat-chip-list role="listitem">
+      <mat-chip *ngFor="let item of _detailsSiblings$ | async">
+      {{item.email}}
+      </mat-chip>
+    </mat-chip-list>
+    </div>
+  </ng-container>
+</div>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of data$ | async">
+    <button (click)="onDetailsButtonClicked(item)">{{item.email}}</button>
+  </mat-list-item>
+</mat-list>
