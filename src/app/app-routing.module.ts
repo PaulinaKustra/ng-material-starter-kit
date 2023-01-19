@@ -9,6 +9,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CryptoCurrencyComponent } from './components/crypto-currency/crypto-currency.component';
 import { UsersComponent } from './components/users/users.component';
+import { ProductExternalComponent } from './components/product-external/product-external.component';
 import { RandomNumberComponentModule } from './components/random-number/random-number.component-module';
 import { RandomNamesComponentModule } from './components/random-names/random-names.component-module';
 import { UsersTableComponentModule } from './components/users-table/users-table.component-module';
@@ -23,6 +24,7 @@ import { CryptoCurrencyComponentModule } from './components/crypto-currency/cryp
 import { CryptoCurrencyServiceModule } from './services/crypto-currency.service-module';
 import { UsersComponentModule } from './components/users/users.component-module';
 import { UsersServiceModule } from './services/users.service-module';
+import { ProductExternalComponentModule } from './components/product-external/product-external.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -34,8 +36,9 @@ import { UsersServiceModule } from './services/users.service-module';
     { path: 'refresh-products', component: ProductListComponent },
     { path: 'product-details', component: ProductDetailsComponent },
     { path: 'crypto-master-details', component: CryptoCurrencyComponent },
-    { path: 'users-chips', component: UsersComponent }
-  ]), RandomNumberComponentModule, RandomNamesComponentModule, UsersTableComponentModule, CatFactComponentModule, CatFactServiceModule, CountryListComponentModule, CountriesServiceModule, ProductListComponentModule, ProductsServiceModule, ProductDetailsComponentModule, CryptoCurrencyComponentModule, CryptoCurrencyServiceModule, UsersComponentModule, UsersServiceModule],
+    { path: 'users-chips', component: UsersComponent },
+    { path: 'products-master-details', component: ProductExternalComponent }
+  ]), RandomNumberComponentModule, RandomNamesComponentModule, UsersTableComponentModule, CatFactComponentModule, CatFactServiceModule, CountryListComponentModule, CountriesServiceModule, ProductListComponentModule, ProductsServiceModule, ProductDetailsComponentModule, CryptoCurrencyComponentModule, CryptoCurrencyServiceModule, UsersComponentModule, UsersServiceModule, ProductExternalComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

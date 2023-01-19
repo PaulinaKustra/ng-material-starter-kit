@@ -1,0 +1,13 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of data$ | async">{{item.title}}
+        <button mat-mini-fab (click)="onShowDetailsButtonClicked(item.id)">Show details</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <ng-container *ngIf="details$ | async as item; else empty">{{item.title}} {{item.price}}$</ng-container>
+    <ng-template #empty></ng-template>
+  </mat-grid-tile>
+</mat-grid-list>
