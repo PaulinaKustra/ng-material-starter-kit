@@ -12,6 +12,7 @@ import { UsersComponent } from './components/users/users.component';
 import { ProductExternalComponent } from './components/product-external/product-external.component';
 import { ProductSnackbarComponent } from './components/product-snackbar/product-snackbar.component';
 import { ProductCategoryComponent } from './components/product-category/product-category.component';
+import { JobPostsComponent } from './components/job-posts/job-posts.component';
 import { RandomNumberComponentModule } from './components/random-number/random-number.component-module';
 import { RandomNamesComponentModule } from './components/random-names/random-names.component-module';
 import { UsersTableComponentModule } from './components/users-table/users-table.component-module';
@@ -30,6 +31,8 @@ import { ProductExternalComponentModule } from './components/product-external/pr
 import { ProductSnackbarComponentModule } from './components/product-snackbar/product-snackbar.component-module';
 import { ProductSnackbarServiceModule } from './services/product-snackbar.service-module';
 import { ProductCategoryComponentModule } from './components/product-category/product-category.component-module';
+import { JobPostsComponentModule } from './components/job-posts/job-posts.component-module';
+import { JobPostsServiceModule } from './services/job-posts.service-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -44,8 +47,9 @@ import { ProductCategoryComponentModule } from './components/product-category/pr
     { path: 'users-chips', component: UsersComponent },
     { path: 'products-master-details', component: ProductExternalComponent },
     { path: 'product-snackbar', component: ProductSnackbarComponent },
-    { path: 'list-2-subject-master-details-get-all', component: ProductCategoryComponent }
-  ]), RandomNumberComponentModule, RandomNamesComponentModule, UsersTableComponentModule, CatFactComponentModule, CatFactServiceModule, CountryListComponentModule, CountriesServiceModule, ProductListComponentModule, ProductsServiceModule, ProductDetailsComponentModule, CryptoCurrencyComponentModule, CryptoCurrencyServiceModule, UsersComponentModule, UsersServiceModule, ProductExternalComponentModule, ProductSnackbarComponentModule, ProductSnackbarServiceModule, ProductCategoryComponentModule],
+    { path: 'list-2-subject-master-details-get-all', component: ProductCategoryComponent },
+    { path: 'list-2-subject-master-details-get-one-different-model', component: JobPostsComponent }
+  ]), RandomNumberComponentModule, RandomNamesComponentModule, UsersTableComponentModule, CatFactComponentModule, CatFactServiceModule, CountryListComponentModule, CountriesServiceModule, ProductListComponentModule, ProductsServiceModule, ProductDetailsComponentModule, CryptoCurrencyComponentModule, CryptoCurrencyServiceModule, UsersComponentModule, UsersServiceModule, ProductExternalComponentModule, ProductSnackbarComponentModule, ProductSnackbarServiceModule, ProductCategoryComponentModule, JobPostsComponentModule, JobPostsServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
