@@ -1,0 +1,5 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of data$ | async">{{item.title}}
+    <button mat-raised-button color="primary" (click)="onShowDetailsButtonClicked(item)">Show same category products</button>
+  </mat-list-item>
+</mat-list>
