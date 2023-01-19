@@ -1,0 +1,14 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of data$ | async">{{item.title}}
+        <button mat-button (click)="onShowDetailsButtonClicked(item.category)">Show products in category</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of details$ | async">{{item.title}}</mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+</mat-grid-list>

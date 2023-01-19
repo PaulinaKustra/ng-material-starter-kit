@@ -11,6 +11,7 @@ import { CryptoCurrencyComponent } from './components/crypto-currency/crypto-cur
 import { UsersComponent } from './components/users/users.component';
 import { ProductExternalComponent } from './components/product-external/product-external.component';
 import { ProductSnackbarComponent } from './components/product-snackbar/product-snackbar.component';
+import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { RandomNumberComponentModule } from './components/random-number/random-number.component-module';
 import { RandomNamesComponentModule } from './components/random-names/random-names.component-module';
 import { UsersTableComponentModule } from './components/users-table/users-table.component-module';
@@ -28,6 +29,7 @@ import { UsersServiceModule } from './services/users.service-module';
 import { ProductExternalComponentModule } from './components/product-external/product-external.component-module';
 import { ProductSnackbarComponentModule } from './components/product-snackbar/product-snackbar.component-module';
 import { ProductSnackbarServiceModule } from './services/product-snackbar.service-module';
+import { ProductCategoryComponentModule } from './components/product-category/product-category.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -41,8 +43,9 @@ import { ProductSnackbarServiceModule } from './services/product-snackbar.servic
     { path: 'crypto-master-details', component: CryptoCurrencyComponent },
     { path: 'users-chips', component: UsersComponent },
     { path: 'products-master-details', component: ProductExternalComponent },
-    { path: 'product-snackbar', component: ProductSnackbarComponent }
-  ]), RandomNumberComponentModule, RandomNamesComponentModule, UsersTableComponentModule, CatFactComponentModule, CatFactServiceModule, CountryListComponentModule, CountriesServiceModule, ProductListComponentModule, ProductsServiceModule, ProductDetailsComponentModule, CryptoCurrencyComponentModule, CryptoCurrencyServiceModule, UsersComponentModule, UsersServiceModule, ProductExternalComponentModule, ProductSnackbarComponentModule, ProductSnackbarServiceModule],
+    { path: 'product-snackbar', component: ProductSnackbarComponent },
+    { path: 'list-2-subject-master-details-get-all', component: ProductCategoryComponent }
+  ]), RandomNumberComponentModule, RandomNamesComponentModule, UsersTableComponentModule, CatFactComponentModule, CatFactServiceModule, CountryListComponentModule, CountriesServiceModule, ProductListComponentModule, ProductsServiceModule, ProductDetailsComponentModule, CryptoCurrencyComponentModule, CryptoCurrencyServiceModule, UsersComponentModule, UsersServiceModule, ProductExternalComponentModule, ProductSnackbarComponentModule, ProductSnackbarServiceModule, ProductCategoryComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
