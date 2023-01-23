@@ -16,8 +16,12 @@ export class UsersTableComponent {
   readonly users$: Observable<UserDataModel[]> = this._refreshUsersSubject.asObservable().pipe(switchMap(() => this._userDataService.getAll()));
 
 
+  // onRefreshButtonClicked(){
+  //   this._userDataService.getAll().subscribe(() => this._refreshUsersSubject.next());
+  // }
+
   onRefreshButtonClicked(){
-    this._userDataService.getAll().subscribe(() => this._refreshUsersSubject.next());
+    this._refreshUsersSubject.next();
   }
 
   constructor(private _userDataService: UserDataService) {

@@ -16,8 +16,12 @@ export class CatFactComponent {
   readonly catFact$: Observable<CatFactModel> = this._refreshCatFactSubject.asObservable().pipe(switchMap(() => this._catFactService.getSingleFact()));
 
 
+  // onRefreshButtonClicked() {
+  //   this._catFactService.getSingleFact().subscribe(() => this._refreshCatFactSubject.next());
+  // }
+
   onRefreshButtonClicked() {
-    this._catFactService.getSingleFact().subscribe(() => this._refreshCatFactSubject.next());
+    this._refreshCatFactSubject.next();
   }
 
   constructor(private _catFactService: CatFactService) {
