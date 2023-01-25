@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Edit Job Tag</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="jobTags" (ngSubmit)="onJobTagsSubmitted(jobTags)">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" placeholder="Name" formControlName="name" required>
+          <mat-error *ngIf="jobTags.get('name')!.invalid">name is invalid</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <button type="submit" mat-raised-button color="primary">Submit</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
