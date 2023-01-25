@@ -116,6 +116,10 @@
     "text": {
       "container": "<ng-container *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</ng-container>",
       "content": "{{ $itemVariable$ }}"
+    },
+    "info-user": {
+      "container": "<mat-card *ngIf=\"$detailVariable$ | async as $itemVariable$\">$content$</mat-card>",
+      "content": " \n<h1>User Details</h1>\n  <mat-card-title>{{ $itemVariable$.name.firstname }} {{$itemVariable$.name.lastname}}</mat-card-title>\n  <mat-card-content>\n    <ng-container>{{$itemVariable$.email}}</ng-container>\n  </mat-card-content>\n"
     }
   }
 }
