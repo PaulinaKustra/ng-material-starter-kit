@@ -9,6 +9,14 @@ export class ProductDetailsService {
   }
 
   getOne(id: number): Observable<ProductDetailsModel> {
-    return this._httpClient.get<ProductDetailsModel>('https://fakestoreapi.com/products/' +id);
+    return this._httpClient.get<ProductDetailsModel>('https://fakestoreapi.com/products/' + id);
+  }
+
+  getAll(): Observable<string[]> {
+    return this._httpClient.get<string[]>('https://fakestoreapi.com/products/categories');
+  }
+
+  update(product: ProductDetailsModel): Observable<ProductDetailsModel> {
+    return this._httpClient.put<ProductDetailsModel>('https://fakestoreapi.com/products/' + product.id, product);
   }
 }

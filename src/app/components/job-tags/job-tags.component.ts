@@ -26,7 +26,7 @@ export class JobTagsComponent {
   onJobTagsSubmitted(jobTags: FormGroup): void {
     this._activatedRoute.params.pipe(
       take(1),
-      switchMap((data) => this._jobTagsService.update({
+      switchMap((data) => this._jobTagsService.updateTag({
         id: data['id'],
         ...jobTags.value
       }))).subscribe();
