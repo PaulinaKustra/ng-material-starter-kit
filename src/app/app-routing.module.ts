@@ -9,6 +9,7 @@ import { UserDetailsTemplateComponent } from './components/user-details-template
 import { JobTagsComponent } from './components/job-tags/job-tags.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { JobFormMyApproachComponent } from './components/job-form-my-approach/job-form-my-approach.component';
 import { CatFactComponentModule } from './components/cat-fact/cat-fact.component-module';
 import { CatFactServiceModule } from './services/cat-fact.service-module';
 import { AgePredictionComponentModule } from './components/age-prediction/age-prediction.component-module';
@@ -24,6 +25,7 @@ import { JobTagsComponentModule } from './components/job-tags/job-tags.component
 import { JobTagsServiceModule } from './services/job-tags.service-module';
 import { JobFormComponentModule } from './components/job-form/job-form.component-module';
 import { ProductEditComponentModule } from './components/product-edit/product-edit.component-module';
+import { JobFormMyApproachComponentModule } from './components/job-form-my-approach/job-form-my-approach.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -32,11 +34,12 @@ import { ProductEditComponentModule } from './components/product-edit/product-ed
     { path: 'product/:id', component: ProductDetailsComponent },
     { path: 'cart/:id', component: CartDetailsComponent },
     { path: 'user/:id', component: UserDetailsComponent },
-    { path: 'user-template', component: UserDetailsTemplateComponent },
+    { path: 'user-template/:id', component: UserDetailsTemplateComponent },
     { path: 'edit-tag/:id', component: JobTagsComponent },
     { path: 'edit-job/:id', component: JobFormComponent },
-    { path: 'edit-product/:id', component: ProductEditComponent }
-  ]), CatFactComponentModule, CatFactServiceModule, AgePredictionComponentModule, AgePredictionServiceModule, ProductDetailsComponentModule, ProductDetailsServiceModule, CartDetailsComponentModule, CartServiceModule, UserDetailsComponentModule, UserDetailsServiceModule, UserDetailsTemplateComponentModule, JobTagsComponentModule, JobTagsServiceModule, JobFormComponentModule, ProductEditComponentModule],
+    { path: 'edit-product/:id', component: ProductEditComponent },
+    { path: 'job-form/:id', component: JobFormMyApproachComponent }
+  ]), CatFactComponentModule, CatFactServiceModule, AgePredictionComponentModule, AgePredictionServiceModule, ProductDetailsComponentModule, ProductDetailsServiceModule, CartDetailsComponentModule, CartServiceModule, UserDetailsComponentModule, UserDetailsServiceModule, UserDetailsTemplateComponentModule, JobTagsComponentModule, JobTagsServiceModule, JobFormComponentModule, ProductEditComponentModule, JobFormMyApproachComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
