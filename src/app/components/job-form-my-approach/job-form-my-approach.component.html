@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onFormSubmitted(form)">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" placeholder="Title" formControlName="title" required>
+      <mat-error *ngIf="form.get('title')!.invalid">title is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" placeholder="Description" formControlName="description" required>
+      <mat-error *ngIf="form.get('description')!.invalid">description is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Job Tag Ids</mat-label>
+      <input matInput type="text" placeholder="Job Tag Ids" formControlName="jobTagIds" required>
+      <mat-error *ngIf="form.get('jobTagIds')!.invalid">jobTagIds is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

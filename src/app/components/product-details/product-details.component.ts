@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductDetailsModel } from '../../models/product-details.model';
 import { ProductDetailsService } from '../../services/product-details.service';
@@ -18,4 +18,5 @@ export class ProductDetailsComponent {
 
   constructor(private _productDetailsService: ProductDetailsService, private _activatedRoute: ActivatedRoute) {
   }
+
 }
