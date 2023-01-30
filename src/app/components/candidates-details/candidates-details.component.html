@@ -1,0 +1,47 @@
+<h1>{{(data$ | async)?.name}} {{(data$ | async)?.surname}}</h1>
+
+<form [formGroup]="form" (ngSubmit)="onFormSubmitted(form)">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="form.get('name')!.invalid">name is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Surname</mat-label>
+      <input matInput type="text" placeholder="Surname" formControlName="surname" required>
+      <mat-error *ngIf="form.get('surname')!.invalid">surname is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" placeholder="Email" formControlName="email" required>
+      <mat-error *ngIf="form.get('email')!.invalid">email is invalid</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="statusId" required placeholder="Status">
+        <mat-option *ngFor="let status of statuses$ | async" [value]="status.id">
+          {{status.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <ng-container>
+      <label formArrayName="skills" *ngFor="let tag of skillsFormArray.controls; let i = index">
+        <input type="checkbox" [formControlName]="i">
+        {{data[i].name}}
+      </label>
+    </ng-container>
+
+  </div>
+  <div>
+    <button type="submit" mat-raised-button color="primary">Submit</button>
+  </div>
+</form>

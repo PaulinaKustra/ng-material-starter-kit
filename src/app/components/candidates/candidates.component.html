@@ -1,0 +1,7 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of data$ | async">{{item.name}} {{item.surname}}
+    <button [routerLink]="'candidate/' + item.id" mat-mini-fab>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
