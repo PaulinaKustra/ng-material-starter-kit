@@ -31,26 +31,19 @@
       <mat-error *ngIf="form.get('price')!.invalid">price is invalid</mat-error>
     </mat-form-field>
   </div>
-
   <div>
     <input #fileUploader type="file" accept="image/png, image/gif, image/jpeg, image/jpg" class="file-upload"
            (change)="onFileSelected($event)">
-    <div class="imagePreview" *ngIf="imageURL && imageURL !== undefined">
+    <div class="imagePreview" *ngIf="imageURL && imageURL !== undefined && form.value.image != ''">
+      <br>
       <img height="50px" width="50px" [src]="form.value.image" [alt]="form.value.image">
-
-    <button type='button' (click)="onRemoveButtonClicked()" mat-mini-fab color="accent"
-            aria-label="Example icon button with a delete icon">
-      <mat-icon>close</mat-icon>
-    </button>
-      <br>
-      {{imageURL | async}}
-      <br>
-      {{form.value.image}}
+      <button type='button' (click)="onRemoveButtonClicked()" mat-mini-fab color="accent"
+              aria-label="Example icon button with a delete icon">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
   </div>
-
   <br>
-
   <div>
     <button type="submit" mat-raised-button color="primary">Submit</button>
   </div>
