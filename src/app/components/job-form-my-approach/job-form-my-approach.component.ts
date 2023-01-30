@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, combineLatest } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import {map, switchMap, take, tap} from 'rxjs/operators';
 import { JobPostModel } from '../../models/job-post.model';
 import { JobTagModel } from '../../models/job-tag.model';
 import { JobTagsService } from '../../services/job-tags.service';
@@ -51,5 +51,16 @@ export class JobFormMyApproachComponent {
     });
   }
 
-  onFormSubmitted(form: FormGroup): void { }
+  onFormSubmitted(form: FormGroup): void {
+    this._activatedRoute.params.pipe(
+      take(1),
+      switchMap((data) => this._jobTagsService.updatePost({
+        id: data['id'],
+        jobTagIds: form.value.jobTagIds,
+        description: form.value.description,
+        title: form.value.tittle
+      }))).subscribe();
+
+      console.log((form.value.jobTagIds as any[]).filter(x=>x.value === true).map(x=>x.name));
+  }
 }
