@@ -4,13 +4,13 @@ import {ProductModel} from '../../models/product.model';
 import {ProductService} from '../../services/product.service';
 
 @Component({
-  selector: 'app-product-price',
-  styleUrls: ['./product-price.component.scss'],
-  templateUrl: './product-price.component.html',
+  selector: 'app-product-sorting-fe',
+  styleUrls: ['./product-sorting-fe.component.scss'],
+  templateUrl: './product-sorting-fe.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductPriceComponent {
+export class ProductSortingFeComponent {
   private _sortedProductSubject: BehaviorSubject<string> = new BehaviorSubject<string>('asc');
   public sortedProduct$: Observable<string> = this._sortedProductSubject.asObservable();
 

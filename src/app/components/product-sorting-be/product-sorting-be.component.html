@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-title>Sort Products by Their Price</mat-card-title>
+  <mat-card-content>
+
+    <button mat-raised-button
+            (click)="onSortingChanged()">{{(_sortedProductSubject | async) == 'asc' ? 'Sort Asc' : 'Sort Desc'}}</button>
+  </mat-card-content>
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let item of productsSorted$ | async">{{item.title}} {{item.price}}$</mat-list-item>
+  </mat-list>
+</mat-card>

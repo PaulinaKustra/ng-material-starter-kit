@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { FlexModule } from '@angular/flex-layout/flex';
-import { ProductPriceComponent } from './product-price.component';
+import { ProductSortingFeComponent } from './product-sorting-fe.component';
 
 @NgModule({
   imports: [MatCardModule, MatListModule, FlexModule, CommonModule],
-  declarations: [ProductPriceComponent],
+  declarations: [ProductSortingFeComponent],
   providers: [],
-  exports: [ProductPriceComponent]
+  exports: [ProductSortingFeComponent]
 })
-export class ProductPriceComponentModule {
+export class ProductSortingFeComponentModule {
 }

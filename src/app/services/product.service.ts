@@ -12,7 +12,7 @@ export class ProductService {
     return this._httpClient.get<ProductModel[]>('https://fakestoreapi.com/products');
   }
 
-  getSortedProduct(id: number): Observable<ProductModel> {
-    return this._httpClient.get<ProductModel>('https://fakestoreapi.com/products/' + id);
+  getSortedProducts(sortValue: string): Observable<ProductModel[]> {
+    return this._httpClient.get<ProductModel[]>('https://fakestoreapi.com/products?sort=' + sortValue);
   }
 }
