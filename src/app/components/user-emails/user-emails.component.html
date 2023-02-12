@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title>Sort Users</mat-card-title>
+  <mat-card-content>
+    <mat-selection-list role="list" fxLayout="row" [multiple]="false">
+      <mat-list-option role="listoption" *ngFor="let item of sortingOrder$ | async" [value]="item" (click)="onSortingChanged(item)">
+        {{item}}
+      </mat-list-option>
+    </mat-selection-list>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of users$ | async">{{item.email}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
