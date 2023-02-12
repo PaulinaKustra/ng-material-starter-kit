@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title>User Roles</mat-card-title>
+  <mat-card-content>
+    <mat-selection-list role="list" fxLayout="row" [multiple]="false">
+      <mat-list-option role="listoption" *ngFor="let item of roles$ | async" [value]="item" (click)="onFilteringChanged(item)">
+        {{item.role}}
+      </mat-list-option>
+    </mat-selection-list>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of users$ | async">{{item.email}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
