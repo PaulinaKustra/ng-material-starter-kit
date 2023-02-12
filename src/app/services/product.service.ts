@@ -11,4 +11,8 @@ export class ProductService {
   getAll(): Observable<ProductModel[]> {
     return this._httpClient.get<ProductModel[]>('https://fakestoreapi.com/products');
   }
+
+  getSortedProduct(id: number): Observable<ProductModel> {
+    return this._httpClient.get<ProductModel>('https://fakestoreapi.com/products/' + id);
+  }
 }
