@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>Order:</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose an option</mat-label>
+      <mat-select (selectionChange)="sortingOrderSelected($event.value)"  [disabled]="!(_sortingBySubject | async)">
+        <mat-option *ngFor="let item of sortingOrder$ | async" [value]="item">
+          {{item}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-selection-list role="list" fxLayout="row" [multiple]="false">
+      <mat-list-option role="listoption" *ngFor="let item of sortingBy$ | async" [value]="item" (click)="sortingBySelected(item)">
+        {{item}}
+      </mat-list-option>
+    </mat-selection-list>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of crypto$ | async">
+        {{item.symbol}}
+        Last price: {{item.lastPrice}}
+        Open price: {{item.openPrice}}
+        Price change: {{item.priceChange}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

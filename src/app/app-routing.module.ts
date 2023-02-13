@@ -6,6 +6,7 @@ import { ProductSortingFeComponent } from './components/product-sorting-fe/produ
 import { ProductSortingBeComponent } from './components/product-sorting-be/product-sorting-be.component';
 import { UserEmailsComponent } from './components/user-emails/user-emails.component';
 import { UserRoleDepartmentComponent } from './components/user-role-department/user-role-department.component';
+import { CryptoSortingFeComponent } from './components/crypto-sorting-fe/crypto-sorting-fe.component';
 import { ProductsComponentModule } from './components/products/products.component-module';
 import { CategoryServiceModule } from './services/category.service-module';
 import { ProductServiceModule } from './services/product.service-module';
@@ -17,6 +18,8 @@ import { ProductSortingBeComponentModule } from './components/product-sorting-be
 import { UserEmailsComponentModule } from './components/user-emails/user-emails.component-module';
 import { UserRoleDepartmentComponentModule } from './components/user-role-department/user-role-department.component-module';
 import { UserDepartmentServiceModule } from './services/user-department.service-module';
+import { CryptoSortingFeComponentModule } from './components/crypto-sorting-fe/crypto-sorting-fe.component-module';
+import { CryptoServiceModule } from './services/crypto.service-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -25,8 +28,9 @@ import { UserDepartmentServiceModule } from './services/user-department.service-
     { path: 'fe-sorted-products', component: ProductSortingFeComponent },
     { path: 'be-sorted-products', component: ProductSortingBeComponent },
     { path: 'user-emails', component: UserEmailsComponent },
-    { path: 'departments', component: UserRoleDepartmentComponent }
-  ]), ProductsComponentModule, CategoryServiceModule, ProductServiceModule, UsersComponentModule, UserRoleServiceModule, UserServiceModule, ProductSortingFeComponentModule, ProductSortingBeComponentModule, UserEmailsComponentModule, UserRoleDepartmentComponentModule, UserDepartmentServiceModule],
+    { path: 'departments', component: UserRoleDepartmentComponent },
+    { path: 'crypto', component: CryptoSortingFeComponent }
+  ]), ProductsComponentModule, CategoryServiceModule, ProductServiceModule, UsersComponentModule, UserRoleServiceModule, UserServiceModule, ProductSortingFeComponentModule, ProductSortingBeComponentModule, UserEmailsComponentModule, UserRoleDepartmentComponentModule, UserDepartmentServiceModule, CryptoSortingFeComponentModule, CryptoServiceModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
