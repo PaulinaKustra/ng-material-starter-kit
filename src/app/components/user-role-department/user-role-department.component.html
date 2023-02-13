@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title></mat-card-title>
+  <mat-card-content>
+    <mat-selection-list role="list" fxLayout="row" [multiple]="false">
+      <mat-list-option role="listoption" *ngFor="let item of userRole$ | async" [value]="item" (click)="onRoleChanged(item.id)">
+        {{item.role}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <mat-selection-list role="list" fxLayout="row" [multiple]="false">
+      <mat-list-option role="listoption" *ngFor="let item of userDepartment$ | async" [value]="item" (click)="onDepartmentChanged(item.id)">
+        {{item.name}}
+      </mat-list-option>
+    </mat-selection-list>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of selectedUsers$ | async">{{item.email}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
