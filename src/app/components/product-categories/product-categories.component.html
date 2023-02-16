@@ -1,0 +1,11 @@
+<h1>Category</h1>
+<div>
+  <mat-radio-group [formControl]="selectedCategory">
+    <mat-radio-button *ngFor="let item of categories$ | async" [value]="item">{{item}}</mat-radio-button>
+  </mat-radio-group>
+</div>
+<br>
+<h1>Products</h1>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of products$ | async">{{item.title}}</mat-list-item>
+</mat-list>
