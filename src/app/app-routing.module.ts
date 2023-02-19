@@ -5,6 +5,7 @@ import { JobPostComponent } from './components/job-post/job-post.component';
 import { ProductCategoriesComponent } from './components/product-categories/product-categories.component';
 import { UserFilterComponent } from './components/user-filter/user-filter.component';
 import { UniversitiesComponent } from './components/universities/universities.component';
+import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { ProductsComponentModule } from './components/products/products.component-module';
 import { ProductServiceModule } from './services/product.service-module';
 import { JobPostComponentModule } from './components/job-post/job-post.component-module';
@@ -17,6 +18,7 @@ import { RoleServiceModule } from './services/role.service-module';
 import { DepartmentsServiceModule } from './services/departments.service-module';
 import { UniversitiesComponentModule } from './components/universities/universities.component-module';
 import { UniversityServiceModule } from './services/university.service-module';
+import { ProductSearchComponentModule } from './components/product-search/product-search.component-module';
 
 @NgModule({
   imports: [RouterModule.forRoot([
@@ -24,8 +26,9 @@ import { UniversityServiceModule } from './services/university.service-module';
     { path: 'list-2-form-sorting-multi-jobs', component: JobPostComponent },
     { path: 'list-2-form-filtering-single', component: ProductCategoriesComponent },
     { path: 'list-2-form-filter-multi-users', component: UserFilterComponent },
-    { path: 'search-single-university-backend', component: UniversitiesComponent }
-  ]), ProductsComponentModule, ProductServiceModule, JobPostComponentModule, JobPostServiceModule, ProductCategoriesComponentModule, CategoryServiceModule, UserFilterComponentModule, UserServiceModule, RoleServiceModule, DepartmentsServiceModule, UniversitiesComponentModule, UniversityServiceModule],
+    { path: 'search-single-university-backend', component: UniversitiesComponent },
+    { path: 'list-2-form-search-multi-product', component: ProductSearchComponent }
+  ]), ProductsComponentModule, ProductServiceModule, JobPostComponentModule, JobPostServiceModule, ProductCategoriesComponentModule, CategoryServiceModule, UserFilterComponentModule, UserServiceModule, RoleServiceModule, DepartmentsServiceModule, UniversitiesComponentModule, UniversityServiceModule, ProductSearchComponentModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

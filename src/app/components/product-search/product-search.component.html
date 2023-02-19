@@ -1,0 +1,19 @@
+<div>
+  <h1>Product Search</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Search by title or price</mat-label>
+    <input matInput type="text" placeholder="search" [formControl]="search" required>
+  </mat-form-field>
+</div>
+<div>
+  <h1>Product List</h1>
+  <mat-list role="list" *ngIf="products$ | async as list else empty">
+    <mat-list-item role="listitem" *ngFor="let item of products$ | async">{{item.title}} {{item.price}}$
+    </mat-list-item>
+  </mat-list>
+</div>
+<ng-template #empty>
+  <div>
+    Oops! There are no products!
+  </div>
+</ng-template>
