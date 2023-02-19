@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, combineLatest } from 'rxjs';
+import {Observable, combineLatest} from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProductModel } from '../../models/product.model';
 import { CategoryModel } from '../../models/category.model';

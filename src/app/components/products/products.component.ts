@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { combineLatest, map, Observable, of} from 'rxjs';
-import { ProductModel } from '../../models/product.model';
-import { ProductService } from '../../services/product.service';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {combineLatest, map, Observable, of, startWith} from 'rxjs';
+import {ProductModel} from '../../models/product.model';
+import {ProductService} from '../../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -18,17 +18,15 @@ export class ProductsComponent {
 
   readonly productsSorted$: Observable<ProductModel[]> = combineLatest([
     this._productService.getAll(),
-    this.sortingOrderControl.valueChanges,
+    this.sortingOrderControl.valueChanges.pipe(startWith('asc')),
   ]).pipe(map(([products, order]) => {
-    console.log('combineLatest')
-    if(order) {
-      console.log('order', order)
+    if (order) {
       return products.sort((a, b) => {
         if (order === 'asc') {
           return a.title?.toUpperCase() > b.title?.toUpperCase() ? 1 : -1;
-        } else {
-          return a.title?.toUpperCase() < b.title?.toUpperCase() ? 1 : -1;
         }
+        return a.title?.toUpperCase() < b.title?.toUpperCase() ? 1 : -1;
+
       })
     }
     return products;

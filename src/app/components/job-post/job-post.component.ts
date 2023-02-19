@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Observable, combineLatest, of} from 'rxjs';
+import {Observable, combineLatest, of, startWith} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {JobPostModel} from '../../models/job-post.model';
 import {JobPostService} from '../../services/job-post.service';
@@ -24,35 +24,22 @@ export class JobPostComponent {
 
   readonly jobPosts$: Observable<JobPostModel[]> = combineLatest([
     this._jobPostService.getAll(),
-    this.sortingForm.valueChanges
-  ]).pipe(map(([posts, order]) => {
+    this.sortingForm.valueChanges.pipe(startWith({property: 'title', directions: 'asc'}))
+  ]).pipe(map(([posts, order]: [JobPostModel[], {property: string, directions: string}]) => {
     if (!order || !order.directions || !order.property)
       return [];
 
-    // return posts.sort((a, b) => {
-    //   if (order.directions === 'asc') {
-    //     return a[order.directions].toUpperCase() > b[order.directions].toUpperCase() ? 1 : -1;
-    //   }
-    //   return a[order.directions].toUpperCase() < b[order.directions].toUpperCase() ? 1 : -1;
-    // })
-
-
-    if (order.property === "title") {
-      return posts.sort((a, b) => {
-        if (order.directions === 'asc') {
-          return a.title?.toUpperCase() > b.title?.toUpperCase() ? 1 : -1;
-        }
-        return a.title?.toUpperCase() < b.title?.toUpperCase() ? 1 : -1;
-      })
-    }
-    return posts.sort((a, b) => {
+    return posts.sort((a: Record<string, any>, b: Record<string, any>) => {
       if (order.directions === 'asc') {
-        return a.description?.toUpperCase() > b.description?.toUpperCase() ? 1 : -1;
-      } else {
-        return a.description?.toUpperCase() < b.description?.toUpperCase() ? 1 : -1;
+        return a[order.property].toUpperCase() > b[order.property].toUpperCase() ? 1 : -1;
       }
+      return a[order.property].toUpperCase() < b[order.property].toUpperCase() ? 1 : -1;
     })
+
+
+
   }))
+
 
   constructor(private _jobPostService: JobPostService) {
   }
