@@ -1,0 +1,20 @@
+<mat-form-field appearance="fill">
+  <mat-label>Country</mat-label>
+  <input type="text" matInput #input>
+</mat-form-field>
+<mat-list role="list" *ngIf="universitiesByCountry$ | async as list else empty">
+  <mat-list-item role="listitem" *ngFor="let item of universitiesByCountry$ | async">{{item.name}}</mat-list-item>
+  <ng-container *ngIf="list.length === 0">
+    <div>
+      Did not find any universities for this country :(
+    </div>
+  </ng-container>
+</mat-list>
+<ng-template #empty>
+  <div>
+    Type any valid country in the searchbox provided above!
+  </div>
+</ng-template>
+
+
+
