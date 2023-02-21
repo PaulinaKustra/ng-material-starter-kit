@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>Country</mat-label>
-  <input type="text" matInput #input>
+  <input [formControl]="search" type="text" matInput>
 </mat-form-field>
 <mat-list role="list" *ngIf="universitiesByCountry$ | async as list else empty">
   <mat-list-item role="listitem" *ngFor="let item of universitiesByCountry$ | async">{{item.name}}</mat-list-item>
@@ -12,7 +12,7 @@
 </mat-list>
 <ng-template #empty>
   <div>
-    Type any valid country in the searchbox provided above!
+    Type any valid country in the search box provided above!
   </div>
 </ng-template>
 

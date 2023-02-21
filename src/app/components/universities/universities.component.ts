@@ -1,17 +1,12 @@
-import {ChangeDetectionStrategy, Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {
   Observable,
-  Subject,
-  Subscription,
   debounceTime,
-  distinctUntilChanged,
-  filter,
-  fromEvent,
-  tap,
-  switchMap
+  switchMap, filter
 } from 'rxjs';
 import {UniversityModel} from '../../models/university.model';
 import {UniversityService} from '../../services/university.service';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-universities',
@@ -21,38 +16,14 @@ import {UniversityService} from '../../services/university.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UniversitiesComponent {
-  private _countrySubject: Subject<string> = new Subject<string>();
+
+  readonly search: FormControl = new FormControl();
+
   readonly universitiesByCountry$: Observable<UniversityModel[]> =
-    this._countrySubject.asObservable().pipe(
+    this.search.valueChanges.pipe(filter(Boolean),debounceTime(1000),
       switchMap((country) =>
-        this._universityService.getAllByCountry(country)));
+        this._universityService.getAllByCountry(country)))
 
-
-  @ViewChild('input') input: ElementRef | undefined;
-  subscription: Subscription | undefined;
-
-  ngAfterViewInit() {
-    if (this.input) {
-      this.subscription = fromEvent(this.input.nativeElement, 'keyup')
-        .pipe(
-          filter(Boolean),
-          debounceTime(1000),
-          distinctUntilChanged(),
-          tap((text) => {
-            if (this.input) {
-              this._countrySubject.next(this.input.nativeElement.value)
-            }
-          })
-        )
-        .subscribe();
-    }
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
 
   constructor(
     private _universityService: UniversityService) {
