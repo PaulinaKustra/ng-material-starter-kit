@@ -8,8 +8,10 @@
 <div>
   <h1>Product List</h1>
   <mat-list role="list" *ngIf="products$ | async as list else empty">
-    <mat-list-item role="listitem" *ngFor="let item of products$ | async">{{item.title}} {{item.price}}$
-    </mat-list-item>
+    <div *ngIf="list.length > 0 else empty">
+      <mat-list-item role="listitem" *ngFor="let item of products$ | async">{{item.title}} {{item.price}}$
+      </mat-list-item>
+    </div>
   </mat-list>
 </div>
 <ng-template #empty>

@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
-import { combineLatest, Observable} from 'rxjs';
-import { ProductModel } from '../../models/product.model';
-import { ProductService } from '../../services/product.service';
-import { FormControl} from "@angular/forms";
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {combineLatest, Observable, startWith} from 'rxjs';
+import {ProductModel} from '../../models/product.model';
+import {ProductService} from '../../services/product.service';
+import {FormControl} from "@angular/forms";
 import {map} from "rxjs/operators";
 
 @Component({
@@ -17,9 +17,8 @@ export class ProductSearchComponent {
 
   readonly products$: Observable<ProductModel[]> = combineLatest([
     this._productService.getAll(),
-    this.search.valueChanges]).pipe(
+    this.search.valueChanges.pipe(startWith(undefined))]).pipe(
     map(([products, search]) => {
-      console.log('search',search)
       if (!search) {
         return products;
       }
