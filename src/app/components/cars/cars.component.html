@@ -1,0 +1,76 @@
+<form [formGroup]="filterCriteria">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a brand</mat-label>
+      <input type="text"
+             matInput
+             formControlName="brand"
+             [matAutocomplete]="selectedBrand">
+      <mat-autocomplete #selectedBrand="matAutocomplete">
+        <mat-option *ngFor="let item of brands$ | async" [value]="item.name">
+          {{item.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a security feature</mat-label>
+      <input type="text"
+             matInput
+             formControlName="securityFeatures"
+             [matAutocomplete]="selectedSecurityFeature">
+      <mat-autocomplete #selectedSecurityFeature="matAutocomplete">
+        <mat-option *ngFor="let item of securityFeatures$ | async" [value]="item.name">
+          {{item.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a comfort feature</mat-label>
+      <input type="text"
+             matInput
+             formControlName="comfortFeatures"
+             [matAutocomplete]="selectedComfortSFeature">
+      <mat-autocomplete #selectedComfortSFeature="matAutocomplete">
+        <mat-option *ngFor="let item of comfortFeatures$ | async" [value]="item.name">
+          {{item.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</form>
+
+<ng-container *ngIf="cars$ | async as list">
+  <table mat-table [dataSource]="list" class="mat-elevation-z8">
+    <!-- Column 1 -->
+    <ng-container matColumnDef="Brand">
+      <th mat-header-cell *matHeaderCellDef> Brand</th>
+      <td mat-cell *matCellDef="let element"> {{ element.brand }} </td>
+    </ng-container>
+    <!-- Column 2 -->
+    <ng-container matColumnDef="Model">
+      <th mat-header-cell *matHeaderCellDef> Model</th>
+      <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+    </ng-container>
+    <!-- Column 3 -->
+    <ng-container matColumnDef="ComfortFeatures">
+      <th mat-header-cell *matHeaderCellDef> Comfort Features</th>
+      <td mat-cell *matCellDef="let element"> {{ element.comfortFeatures }} </td>
+    </ng-container>
+    <!-- Column 4 -->
+    <ng-container matColumnDef="SecurityFeatures">
+      <th mat-header-cell *matHeaderCellDef> Security Features</th>
+      <td mat-cell *matCellDef="let element"> {{element.securityFeatures}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['Brand', 'Model', 'ComfortFeatures', 'SecurityFeatures']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['Brand', 'Model', 'ComfortFeatures', 'SecurityFeatures'];"></tr>
+  </table>
+</ng-container>
+
+
+
+
