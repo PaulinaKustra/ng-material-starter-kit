@@ -9,7 +9,6 @@ export class ProductService {
   }
 
   getAllWithSort(sort:string): Observable<ProductModel[]> {
-    console.log(sort);
     return this._httpClient.get<ProductModel[]>(`https://fakestoreapi.com/products?sort=${sort}`);
   }
 }

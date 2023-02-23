@@ -1,0 +1,15 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { JobPostModel } from '../models/job-post.model';
+
+@Injectable()
+export class JobPostService {
+  constructor(private _httpClient: HttpClient) {
+  }
+
+  getAll(search: string): Observable<JobPostModel[]> {
+    console.log("search", search)
+    return this._httpClient.get<JobPostModel[]>(`https://636ce2d8ab4814f2b2712854.mockapi.io/job-posts?search=${search}`);
+  }
+}
